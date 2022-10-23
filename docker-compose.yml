@@ -4,7 +4,7 @@ services:
     build: ./exposedservice
     container_name: exposedserver
     volumes:
-      - ./exposedservice/:/app
+      - ./exposedservice/index.js:/app/index.js
     ports:
       - "8001:4000"
     expose:
@@ -17,7 +17,7 @@ services:
     build: ./internalservice
     container_name: internalserver
     volumes:
-      - ./internalservice/:/app
+      - ./internalservice/index.js:/app/index.js
     ports:
       - "4002:4002"
     networks:
