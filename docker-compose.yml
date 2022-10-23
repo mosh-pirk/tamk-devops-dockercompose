@@ -1,0 +1,28 @@
+version: "3.5"
+services:
+  exposedserver:
+    build: ./exposedservice
+    container_name: exposedserver
+    volumes:
+      - ./exposedservice/:/app
+    ports:
+      - "8001:4000"
+    expose:
+      - "8001"
+    networks:
+      - network1
+
+
+  internalserver:
+    build: ./internalservice
+    container_name: internalserver
+    volumes:
+      - ./internalservice/:/app
+    ports:
+      - "4002:4002"
+    networks:
+      - network1
+
+networks:
+  network1:
+    name: network1
